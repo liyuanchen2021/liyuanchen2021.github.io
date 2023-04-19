@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="no-js" lang="zh">
   <head>
@@ -16,13 +17,17 @@
          li.header-text {
              float: left;
          }
-         li a {
+         li>a.inactive {
              color: white;
              padding: 14px 16px;
              display: inline-block;
              text-decoration: none;
          }
          li>a.active {
+             color: white;
+             padding: 14px 16px;
+             display: inline-block;
+             text-decoration: none;
              background-color: blue;
          }
          li>a:hover:not(a.active),
@@ -51,10 +56,10 @@
   </head>
   <body>
     <ul class="header-top">
-        <li class="header-text"><a href="/">liyuanchen2021</a></li>
-        <li class="header-text"><a href="/" class="active">首页</a></li>
-        <li class="header-text"><a href="/post/list">文章</a></li>
-        <li class="header-text"><a href="/app/list">应用</a></li>
+        <li class="header-text"><a href="/" class="inactive">liyuanchen2021</a></li>
+        <li class="header-text"><a href="/" class="inactive">首页</a></li>
+        <li class="header-text"><a href="/post/list" class="active">文章</a></li>
+        <li class="header-text"><a href="/app/list" class="inactive">应用</a></li>
     </ul>
     
     <h1>文章列表</h1>
