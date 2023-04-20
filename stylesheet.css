@@ -40,8 +40,11 @@ button {
     border-radius: 10px;
 }
 button:hover {
-    color: white;
-    border-color: transparent;
-    background-color: #000;
-    border-radius: 10px;
+  background-color: #000;
+}
+button.big {
+  font-size: 150%;
+}
+button.big:hover {
+  font-size: 150%;
 }
