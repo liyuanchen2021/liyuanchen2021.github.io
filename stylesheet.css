@@ -33,3 +33,13 @@ li>a.active {
 li>a.inactive:hover {
     background-color: #555;
 }
+button {
+    color: white;
+    border-color: transparent;
+    background-color: blue;
+}
+button:hover {
+    color: white;
+    border-color: transparent;
+    background-color: #000;
+}
