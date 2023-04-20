@@ -1,8 +1,10 @@
 a {
     color: #3498DD;
+    text-decoration: none;
 }
 a:hover {
     color: #0056B3;
+    text-decoration: none;
 }
 ul.header-top {
     list-style-type: none;
