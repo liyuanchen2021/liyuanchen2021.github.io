@@ -37,14 +37,30 @@ button {
     color: white;
     border-color: transparent;
     background-color: blue;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 button:hover {
   background-color: #000;
 }
 button.big {
   font-size: 150%;
+  border-radius: 10px;
 }
-button.big:hover {
-  font-size: 150%;
+h1 {
+  font-size: 1.75em;
+}
+h2 {
+  font-size: 1.25em;
+}
+h3 {
+  font-size: 1.125em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.875em;
+}
+h6 {
+  font-size: 0.875em;
 }
