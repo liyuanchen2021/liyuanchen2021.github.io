@@ -1,59 +1,17 @@
-a {
-    color: #3498DD;
-    text-decoration: none;
-}
-a:hover {
-    color: #0056B3;
-    text-decoration: none;
-}
-ul.header-top {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #999;
-    overflow: hidden;
-    /*来源链接：https://www.runoob.com/try/try.php?filename=trycss_navbar_horizontal_float&basepath=0*/
-}
-li.header-text {
-    float: left;
-}
-li>a.inactive {
-    color: white;
-    padding: 14px 16px;
-    display: inline-block;
-    text-decoration: none;
-}
-li>a.active {
-    color: white;
-    padding: 14px 16px;
-    display: inline-block;
-    text-decoration: none;
-    background-color: blue;
-}
-li>a.inactive:hover {
-    background-color: #555;
-}
-button {
-    color: white;
-    border-color: transparent;
-    background-color: blue;
-    border-radius: 7px;
-}
-button:hover {
-  background-color: #000;
-}
-button.big {
-  font-size: 150%;
-  border-radius: 10px;
-}
+a {color: #3498DD; text-decoration: none;}
+a:hover {color: #0056B3}
+ul.header-top {list-style-type: none; margin: 0; padding: 0; background-color: #999; overflow: hidden;}
+li.header-text {float: left;}
+li>a.inactive {color: white; padding: 14px 16px; display: inline-block; text-decoration: none;}
+li>a.inactive:hover {background-color: #555;}
+li>a.active {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: blue;}
+button {color: white; border-color: transparent; background-color: blue; border-radius: 7px;}
+button:hover {background-color: #000;}
+button.big {font-size: 150%; border-radius: 10px;}
 h1 {font-size: 1.75em;}
 h2 {font-size: 1.25em;}
 h3 {font-size: 1.125em;}
 h4 {font-size: 1em;}
 h5 {font-size: 0.875em;}
 h6 {font-size: 0.75em;}
-blockquote {
-  padding: 10px 20px;
-  margin: 0 0 20px;
-  border-left: 5px solid #eee;
-}
+blockquote {padding: 10px 20px; margin: 0 0 20px; border-left: 5px solid #eee;}
