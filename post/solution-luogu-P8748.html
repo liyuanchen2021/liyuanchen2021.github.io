@@ -36,8 +36,8 @@
     <p>首先，忽略不足 1 秒的毫秒数，即 <code class="inline">n/=1000</code>。<p>
     <p>其次，计算出时、分、秒。其中，时可以用 <code class="inline">n%86400/3600</code> 来表示，分可以用 <code class="inline">n%3600/60</code> 来表示，秒可以用 <code class="inline">n%60</code> 来表示。这里的 86400 秒是一天 24 小时内所经过的秒数，3600 秒是 1 小时内所经过的秒数，60 秒是 1 分钟内所经过的秒数。</p>
     <p>最后，按照题目要求输出时间，注意时、分、秒不足两位时要补前导 0。</p>
-    <h2>参考代码</h2>
-    <code>#include &lt;cstdio&gt;<br>
+    <h2>参考代码</h2> <div class="tooltip"><button onclick="onclick_func()" onmouseout="out_func()"><span class="tooltiptext" id="std-copy">点击复制</span>复制</button></div>
+    <code id="std">#include &lt;cstdio&gt;<br>
 int main() {<br>
 &nbsp;&nbsp;long long n;<br>
 &nbsp;&nbsp;scanf("%lld", &n);<br>
@@ -45,5 +45,19 @@ int main() {<br>
 &nbsp;&nbsp;printf("%02lld:%02lld:%02lld\n", n % 86400 / 3600, n % 3600 / 60, n % 60);<br>
 &nbsp;&nbsp;return 0;<br>
 }<br></code>
+    <script>
+      function myFunction() {
+        var copyText = document.getElementById("std");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        var tooltip = document.getElementById("std-copy");
+        tooltip.innerHTML = "复制成功";
+      }
+      function outFunc() {
+        var tooltip = document.getElementById("std-copy");
+        tooltip.innerHTML = "点击复制";
+      }
+    </script>
   </body>
 </html>
