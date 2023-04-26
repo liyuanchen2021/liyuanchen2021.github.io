@@ -17,3 +17,4 @@ h5 {font-size: 0.875em;}
 h6 {font-size: 0.75em;}
 blockquote {padding: 10px 20px; margin: 0 0 20px; border-left: 5px solid #eee;}
 strong.highlight-yellow {font-size: 16px; text-decoration: none; background-color: yellow;}
+code.inline {color: #e74285; background-color: #ffe3eb;}
