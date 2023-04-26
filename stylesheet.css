@@ -5,7 +5,7 @@ li.header-text {float: left;}
 li>a.inactive {color: white; padding: 14px 16px; display: inline-block; text-decoration: none;}
 li>a.inactive:hover {background-color: #555;}
 li>a.active {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: blue;}
-li>a.name {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: black;}
+li>a.name {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: #555;}
 button {color: white; border-color: transparent; background-color: blue; border-radius: 6.67px;}
 button:hover {background-color: #000;}
 button.big {font-size: 150%; border-radius: 10px;}
@@ -17,4 +17,4 @@ h5 {font-size: 0.875em;}
 h6 {font-size: 0.75em;}
 blockquote {padding: 10px 20px; margin: 0 0 20px; border-left: 5px solid #eee;}
 strong.highlight-yellow {font-size: 16px; text-decoration: none; background-color: yellow;}
-code.inline {font-family: monospace, monospace; font-size: 1em;}
+code.inline {color: #e74285; background-color: #ffe3eB; font-size: 1em;}
