@@ -19,6 +19,34 @@ blockquote {padding: 10px 20px; margin: 0 0 20px; border-left: 5px solid #eee;}
 strong {font-weight: bolder;}
 strong.highlight-yellow {font-size: 16px; text-decoration: none; background-color: yellow;}
 code {font-family: monospace, monospace; font-size: 1em;}
-code.inline {color: #e74285; background-color: #ffe3eb;}
+code.inline {color: #e74285; background-color: #ffe3eb; display: inline-block;}
 small {font-size: 80%;}
-textarea {font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0;}
+textarea {font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; resize: none;}
+.tooltip {position: relative; display: inline-block;}
+.tooltip.tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.tooltip:hover.tooltiptext {visibility: visible; opacity: 1;}
