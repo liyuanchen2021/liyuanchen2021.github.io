@@ -36,7 +36,7 @@
     <p>首先，忽略不足 1 秒的毫秒数，即 <code class="inline">n/=1000</code>。<p>
     <p>其次，计算出时、分、秒。其中，时可以用 <code class="inline">n%86400/3600</code> 来表示，分可以用 <code class="inline">n%3600/60</code> 来表示，秒可以用 <code class="inline">n%60</code> 来表示。这里的 86400 秒是一天 24 小时内所经过的秒数，3600 秒是 1 小时内所经过的秒数，60 秒是 1 分钟内所经过的秒数。</p>
     <p>最后，按照题目要求输出时间，注意时、分、秒不足两位时要补前导 0。</p>
-    <h2>参考代码 <button onclick="onclick_func()" onmouseout="out_func()"><span id="std-copy">复制</span></button></h2>
+    <h2>参考代码 <div onclick="onclick_func()"><span id="std-copy"><button class="copy">复制</button></span></div></h2>
     <code><span id="std">#include &lt;cstdio&gt;<br>
 int main() {<br>
 &nbsp;&nbsp;long long n;<br>
@@ -50,11 +50,9 @@ int main() {<br>
         var copyText = document.getElementById("std");
         navigator.clipboard.writeText(copyText.value);
         var butt = document.getElementById("std-copy");
-        butt.innerHTML = "复制成功";
-      }
-      function out_func() {
-        var butt = document.getElementById("std-copy");
-        butt.innerHTML = "复制";
+        butt.innerHTML = "<button class="copy-succeeded">复制成功</button>";
+        setTimeout(500);
+        butt.innerHTML = "<button class="copy">复制</button>";
       }
     </script>
   </body>
