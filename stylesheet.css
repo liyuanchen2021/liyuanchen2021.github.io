@@ -11,7 +11,7 @@ button:hover {background-color: #000;}
 button.big {font-size: 150%; border-radius: 10px;}
 button.copy {color: #3498DB; border-color: #3498DB; background-color: white;}
 button.copy:hover {background-color: #EAF4FB;}
-button.copy-successed {color: #3498DB; border-color: #3498DB; background-color: #3498DB;}
+button.copy-succeed {color: #3498DB; border-color: #3498DB; background-color: #3498DB;}
 h1 {font-size: 1.75em;}
 h2 {font-size: 1.25em;}
 h3 {font-size: 1.125em;}
