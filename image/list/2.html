@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh">
+  
+<head>
+    <meta charset="utf-8">
+    <title>图册 - liyuanchen2021</title>
+    <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
+    <link href="/stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+ 
+<body>
+    <style type="text/css">
+      * {box-sizing: border-box}
+      body {font-family: Verdana, sans-serif; margin:0}
+      .slideshow-container {
+        position: relative;
+        background: #f1f1f1f1;
+      }
+      .mySlides {
+        display: none;
+        padding: 10px;
+        text-align: center;
+      }
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -30px;
+        padding: 16px;
+        color: #888;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      .next {
+        position: absolute;
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+        color: white;
+      }
+      .dot-container {
+          text-align: center;
+          padding: 20px;
+          background: #ddd;
+      }
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active, .dot:hover {
+        background-color: #717171;
+      }
+      q {font-style: italic;}
+    </style>
+    <div class="slideshow-container">
+      <div class="mySlides" style="display: block;">
+          <img src="/image/8.jpg" width=727.2 height=545.4>
+      </div>
+      <div class="mySlides" style="display: none;">
+          <img src="/image/9.jpg" width=727.2 height=545.4>
+      </div>
+      <div class="mySlides" style="display: none;">
+          <img src="/image/10.jpg" width=727.2 height=545.4>
+      </div>
+      <div class="mySlides" style="display: none;">
+          <img src="/image/11.jpg" width=727.2 height=545.4>
+      </div>
+      <div class="mySlides" style="display: none;">
+          <img src="/image/12.jpg" width=727.2 height=545.4>
+      </div>
+      <div class="mySlides" style="display: none;">
+          <img src="/image/13.jpg" width=727.2 height=545.4>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <div class="dot-container">
+      <span class="dot active" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+    </div>
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+    	}
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+      }
+  </script>
+</body>
+</html>
