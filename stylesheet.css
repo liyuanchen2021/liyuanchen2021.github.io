@@ -21,3 +21,4 @@ code {font-family: monospace, monospace; font-size: 1em;}
 code.inline {color: #e74285; background-color: #ffe3eb; display: inline-block;}
 small {font-size: 80%;}
 textarea {font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; resize: none;}
+textarea.no-edit {pointer-events: none;}
