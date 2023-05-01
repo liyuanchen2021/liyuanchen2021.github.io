@@ -19,21 +19,9 @@
     
     <h2>图片轮播</h2>
     <style type="text/css">
-        * {
-            box-sizing: border-box
-        }
-
-        .slideshow-container {
-            position: relative;
-            background: #f1f1f1f1;
-        }
-
-        .mySlides {
-            display: none;
-            padding: 10px;
-            text-align: center;
-        }
-
+        * {box-sizing: border-box;}
+        .slideshow-container {position: relative; background: #f1f1f1f1;}
+        .mySlides {display: none; padding: 10px; text-align: center;}
         .prev,
         .next {
             cursor: pointer;
@@ -48,25 +36,9 @@
             border-radius: 0 3px 3px 0;
             user-select: none;
         }
-
-        .next {
-            position: absolute;
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-        }
-
-        .dot-container {
-            text-align: center;
-            padding: 20px;
-            background: #ddd;
-        }
-
+        .next {position: absolute; right: 0; border-radius: 3px 0 0 3px;}
+        .prev:hover,.next:hover {background-color: rgba(0, 0, 0, 0.8); color: white;}
+        .dot-container {text-align: center; padding: 20px; background: #ddd;}
         .dot {
             cursor: pointer;
             height: 15px;
@@ -77,15 +49,9 @@
             display: inline-block;
             transition: background-color 0.6s ease;
         }
-
         .active,
-        .dot:hover {
-            background-color: #717171;
-        }
-
-        q {
-            font-style: italic;
-        }
+        .dot:hover {background-color: #717171;}
+        q {font-style: italic;}
     </style>
     <div class="slideshow-container">
         <div class="mySlides" style="display: block;">
@@ -106,24 +72,16 @@
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
+        function plusSlides(n) {showSlides(slideIndex += n);}
+        function currentSlide(n) {showSlides(slideIndex = n);}
         function showSlides(n) {
             var i;
             var slides = document.getElementsByClassName("mySlides");
             var dots = document.getElementsByClassName("dot");
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
+            if (n > slides.length) {slideIndex = 1;}
+            if (n < 1) {slideIndex = slides.length;}
+            for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+            for (i = 0; i < dots.length; i++) {dots[i].className = dots[i].className.replace(" active", "");}
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
