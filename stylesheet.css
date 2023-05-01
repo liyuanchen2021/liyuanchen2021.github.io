@@ -4,9 +4,9 @@ ul.header-top {list-style-type: none; margin: 0; padding: 0; background-color: #
 li.header-text {float: left;}
 li>a.inactive {color: white; padding: 14px 16px; display: inline-block; text-decoration: none;}
 li>a.inactive:hover {background-color: #555;}
-li>a.active {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: blue;}
+li>a.active {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: #8F000B;}
 li>a.name {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: #555;}
-button {color: white; border-color: transparent; background-color: blue; border-radius: 6.67px;}
+button {color: white; border-color: transparent; background-color: #8F000B; border-radius: 6.67px;}
 button:hover {background-color: #000;}
 button.big {font-size: 150%; border-radius: 10px;}
 h1 {font-size: 1.75em;}
