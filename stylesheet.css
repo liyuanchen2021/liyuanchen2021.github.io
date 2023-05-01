@@ -1,6 +1,6 @@
 a {color: #3498DD; text-decoration: none;}
 a:hover {color: #0056B3}
-ul.header-top {list-style-type: none; margin: 0; padding: 0; background-color: white; overflow: hidden;}
+ul.header-top {list-style-type: none; margin: 0; padding: 0; background-color: #eee; overflow: hidden;}
 ul.header-top>li.header-text {float: left;}
 ul.header-top>li.header-text>a.inactive {color: black; background-color: #eee; padding: 14px 16px; display: inline-block; text-decoration: none;}
 ul.header-top>li.header-text>a.inactive:hover {background-color: #ccc;}
