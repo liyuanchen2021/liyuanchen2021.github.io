@@ -4,7 +4,8 @@ ul.header-top {list-style-type: none; margin: 0; padding: 0; background-color: #
 ul.header-top>li.header-text {float: left;}
 ul.header-top>li.header-text>a.inactive {color: black; background-color: #eee; padding: 14px 16px; display: inline-block; text-decoration: none;}
 ul.header-top>li.header-text>a.inactive:hover {background-color: #ccc;}
-ul.header-top>li.header-text>a.name,ul.header-top>li.header-text>a.active {color: black; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: #aaa;}
+ul.header-top>li.header-text>a.name {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: blue;}
+ul.header-top>li.header-text>a.active {color: black; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: #aaa;}
 button {color: white; border-color: transparent; background-color: #8F000B; border-radius: 6.67px;}
 button:hover {background-color: #000;}
 button.big {font-size: 150%; border-radius: 10px;}
