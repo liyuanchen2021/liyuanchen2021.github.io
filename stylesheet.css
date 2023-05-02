@@ -10,8 +10,8 @@ button {color: white; border-color: transparent; background-color: #8F000B; bord
 button:hover {background-color: #000;}
 button.big {font-size: 150%; border-radius: 10px;}
 h1 {font-size: 1.75em;}
-h2 {font-size: 1.25em;}
-h3 {font-size: 1.125em;}
+h2 {font-size: 1.5em;}
+h3 {font-size: 1.25em;}
 h4 {font-size: 1em;}
 h5 {font-size: 0.875em;}
 h6 {font-size: 0.75em;}
