@@ -25,8 +25,9 @@
     <p>洛谷：<input type="text" id="LuoguPID"><button onclick="LuoguPID_click()">跳转</button></p>
     <script>
       function LuoguPID_click() {
+        var Prefix = "https://liyuanchen2021.github.io/oi/post/solution-luogu-";
         var myInput = document.getElementById("LuoguPID");
-        window.open("https://liyuanchen2021.github.io/oi/post/solution-luogu-" + myInput);
+        var newWindow = window.open(console.log(Prefix + myInput), "_self");
       }
     </script>
   </body>
