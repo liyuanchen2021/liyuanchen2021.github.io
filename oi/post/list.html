@@ -22,9 +22,12 @@
       <li><a href="codeblocks-o2">如何在 Code::Blocks 中开启 O2 优化</a></li>
     </ul>
     <h2>题解</h2>
-    <ul>
-      <li><a href="solution-luogu-P8748.html">洛谷 P8748 题解</a></li>
-      <li><a href="solution-luogu-P9123.html">洛谷 P9123 题解</a></li>
-    </ul>
+    <p>洛谷：<input type="text" id="LuoguPID"><button onclick="LuoguPID_click()">跳转</button></p>
+    <script>
+      function LuoguPID_click() {
+        var myInput = document.getElementById("LuoguPID");
+        window.open("https://liyuanchen2021.github.io/oi/post/solution-luogu-" + myInput);
+      }
+    </script>
   </body>
 </html>
