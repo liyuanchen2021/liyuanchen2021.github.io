@@ -6,6 +6,12 @@
     <title>文章列表 - liyuanchen2021 OI</title>
     <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
     <link href="/stylesheet.css" rel="stylesheet" type="text/css">
+    <script>
+      function LuoguPID_click() {
+        var myInput = document.getElementById("LuoguPID").value;
+        var newWindow = window.open("https://liyuanchen2021.github.io/oi/post/solution-luogu-" + myInput, "_self");
+      }
+    </script>
   </head>
   <body>
     <ul class="header-top">
@@ -23,12 +29,5 @@
     </ul>
     <h2>题解</h2>
     <p>洛谷：<input type="text" id="LuoguPID" placeholder="题目编号"><button onclick="LuoguPID_click()">跳转</button></p>
-    <script>
-      function LuoguPID_click() {
-        var Prefix = "https://liyuanchen2021.github.io/oi/post/solution-luogu-";
-        var myInput = document.getElementById("LuoguPID").value;
-        var newWindow = window.open(console.log(Prefix + myInput), "_self");
-      }
-    </script>
   </body>
 </html>
