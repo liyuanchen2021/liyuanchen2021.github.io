@@ -16,6 +16,11 @@
         var myInputP = document.getElementById("CFPID").value;
         var newWindow = window.open("https://liyuanchen2021.github.io/oi/post/solution-CF-" + myInputC + myInputP, "_self");
       }
+      function ATPID_click() {
+        var myInputC = document.getElementById("ATCID").value;
+        var myInputP = document.getElementById("ATPID").value;
+        var newWindow = window.open("https://liyuanchen2021.github.io/oi/post/solution-AT-" + myInputC + myInputP, "_self");
+      }
     </script>
   </head>
   <body>
@@ -35,5 +40,6 @@
     <h2>题解</h2>
     <p>洛谷：<input type="text" id="LuoguPID" placeholder="题目编号"><button onclick="LuoguPID_click()">跳转</button></p>
     <p>CodeForces：<input type="text" id="CFCID" placeholder="比赛编号"><input type="text" id="CFPID" placeholder="题目编号"><button onclick="CFPID_click()">跳转</button></p>
+    <p>AtCoder：<input type="text" id="ATCID" placeholder="比赛编号"><input type="text" id="ATPID" placeholder="题目编号"><button onclick="ATPID_click()">跳转</button></p>
   </body>
 </html>
