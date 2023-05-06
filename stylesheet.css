@@ -8,7 +8,7 @@ ul.header-top>li.header-text>a.name {color: white; padding: 14px 16px; display: 
 ul.header-top>li.header-text>a.active {color: black; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: #aaa;}
 ul.header-top>li.header-text>a.button-link>button.menu-button {display: inline-block; color: white; border-color: transparent; border-style: solid; background-color: #3498DD; font-size: 150%; border-radius: 10px; box-shadow: none; margin-top: 6px; margin-left: 853px;}
 ul.header-top>li.header-text>a.button-link>button.menu-button:hover {background-color: #0056B3;}
-ul.header-top>li.header-text>input.menu-input {border-radius: 10px; padding: 15px 100px; margin-top: 7px; margin-left: 648px;}
+ul.header-top>li.header-text>input.menu-input {border-radius: 10px; padding: 12px 100px; margin-top: 2px; margin-left: 648px;}
 button {display: inline-block; color: white; border-color: transparent; border-style: solid; background-color: #3498DD; border-radius: 6.67px; box-shadow: none;}
 button:hover {background-color: #0056B3;}
 button.white {color: #3498DD; border-color: #3498DD; background-color: transparent;}
