@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>搜索 - liyuanchen2021 OI</title>
+    <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
+    <link href="/stylesheet.css" rel="stylesheet" type="text/css">
+    <script>
+      function LG_click() {
+        var N = document.getElementById("LGName").value;
+        var K = document.getElementById("LGKeyword").value;
+        var newWindow = window.open("https://www.luogu.com.cn/blog/" + N + "/#keyword=" + K, "_self");
+      }
+    </script>
+  </head>
+  <body>
+    <ul class="header-top">
+        <li class="header-text"><a href="/" class="name">liyuanchen2021</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="name">OI版</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="inactive">首页</a></li>
+        <li class="header-text"><a href="/oi/post/list" class="active">文章</a></li>
+        <li class="header-text"><a href="https://github.com/liyuanchen2021/liyuanchen2021.github.io" class="inactive" target="_blank">仓库</a></li>
+        <li class="header-text"><a class="button-link" href="/oi/search"><button href="/oi/search" class="menu-button">搜索</button></a></li>
+    </ul>
+    
+    <h1>搜索</h1>
+    <h2>本地搜索</h2>
+    <p>暂缓开通</p>
+    <h2>远程搜索</h2>
+    <p>CodeForces：<input type="text" id="LGName" placeholder="UID/域名"><input type="text" id="LGKeyword" placeholder="关键字"><button onclick="LG_click()">搜索</button></p>
+  </body>
+</html>
