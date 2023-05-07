@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>文章列表 - liyuanchen2021 OI</title>
+    <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
+    <link href="/stylesheet.css" rel="stylesheet" type="text/css">
+    <script>
+      function LuoguPID_click() {
+        var myInput = document.getElementById("LuoguPID").value;
+        var newWindow = window.open("https://liyuanchen2021.github.io/oi/post/solution-luogu-" + myInput, "_self");
+      }
+      function _LuoguPID_click() {
+        var myInput = document.getElementById("LuoguPID").value;
+        var newWindow = window.open("https://www.luogu.com.cn/problem/solution/" + myInput, "_blank");
+      }
+      function CFPID_click() {
+        var myInputC = document.getElementById("CFCID").value;
+        var myInputP = document.getElementById("CFPID").value;
+        var newWindow = window.open("https://liyuanchen2021.github.io/oi/post/solution-CF-" + myInputC + myInputP, "_self");
+      }
+      function ATPID_click() {
+        var myInputC = document.getElementById("ATCID").value;
+        var myInputP = document.getElementById("ATPID").value;
+        var newWindow = window.open("https://liyuanchen2021.github.io/oi/post/solution-AT-" + myInputC + "-" + myInputP, "_self");
+      }
+    </script>
+  </head>
+  <body>
+    <ul class="header-top">
+        <li class="header-text"><a href="/" class="name">liyuanchen2021</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="name">OI版</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="inactive">首页</a></li>
+        <li class="header-text"><a href="/oi/post/list" class="active">文章</a></li>
+        <li class="header-text"><a href="https://github.com/liyuanchen2021/liyuanchen2021.github.io" class="inactive" target="_blank">仓库</a></li>
+        <li class="header-text"><a class="button-link" href="/oi/search"><button href="/oi/search" class="menu-button">搜索</button></a></li>
+    </ul>
+    
+    <h1>题解列表</h1>
+    <h2>题解跳转</h2>
+    <p>洛谷：<input type="text" id="LuoguPID" placeholder="题目编号，不支持 RMJ 题库"><button onclick="LuoguPID_click()">跳转</button><button class="white" onclick="_LuoguPID_click()">转到洛谷题解</button></p>
+    <p>CodeForces：<input type="text" id="CFCID" placeholder="比赛编号"><input type="text" id="CFPID" placeholder="题目编号，形如 A"><button onclick="CFPID_click()">跳转</button></p>
+    <p>AtCoder：<input type="text" id="ATCID" placeholder="比赛编号，字母均为大写"><input type="text" id="ATPID" placeholder="题目编号，形如 A"><button onclick="ATPID_click()">跳转</button></p>
+    <h2>近期题解</h2>
+    <ul>
+      <li><a href="solution-luogu-P8748">洛谷 P8748 题解</a></li>
+      <li><a href="solution-luogu-P9123">洛谷 P9123 题解</a></li>
+    </ul>
+  </body>
+</html>
