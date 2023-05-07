@@ -16,11 +16,11 @@
           const n = 3;
           var i, cnt = 0;
           for (i = 0; i < n; i++)
-         	 if (strlist[i].indexOf(Kword) != -1)  cnt++;
-        	if (cnt == 0)  document.body.innerHTML += "<p class=\"grey\">未找到结果</p>";
+         	  if (strlist[i].indexOf(Kword) != -1)  cnt++;
+          if (cnt == 0)  document.body.innerHTML += "<p class=\"grey\">未找到结果</p>";
           else  document.body.innerHTML += "<p class=\"grey\">共有 " + cnt + " 条结果</p>";
-        	for (i = 0; i < n; i++)
-         	 if (strlist[i].indexOf(Kword) != -1)  document.body.innerHTML += "<p><a href=\"/oi/post/" + linklist[i] + "\">" + strlist[i] + "</a></p>";
+          for (i = 0; i < n; i++)
+            if (strlist[i].indexOf(Kword) != -1)  document.body.innerHTML += "<p><a href=\"/oi/post/" + linklist[i] + "\">" + strlist[i] + "</a></p>";
         }
       }
     </script>
