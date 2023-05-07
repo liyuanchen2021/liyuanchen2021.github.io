@@ -27,3 +27,4 @@ small {font-size: 80%;}
 textarea {font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; resize: none;}
 textarea.no-editing {pointer-events: none;}
 textarea.text-code {display: block; border-color: transparent; font-size: 1em; pointer-events: none;}
+p.grey {color: #bfbfbf;}
