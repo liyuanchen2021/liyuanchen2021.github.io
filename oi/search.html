@@ -23,6 +23,10 @@
             if (strlist[i].indexOf(Kword) != -1)  document.body.innerHTML += "<p><a href=\"/oi/post/" + linklist[i] + "\">" + strlist[i] + "</a></p>";
         }
       }
+      function get() {
+        var code = event.keyCode;
+        if (code == 13) Local_click();
+      }
     </script>
   </head>
   <body>
@@ -37,6 +41,6 @@
     </ul>
     
     <h1>搜索</h1>
-    <p><input type="text" id="Keyword"><button onclick="Local_click()">搜索</button></p>
+    <p><input type="text" id="Keyword" onkeyup="get()"><button onclick="Local_click()">搜索</button></p>
   </body>
 </html>
