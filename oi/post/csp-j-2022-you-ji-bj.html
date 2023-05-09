@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>01 背包 - 文章 - liyuanchen2021 OI</title>
+    <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
+    <link href="/stylesheet.css" rel="stylesheet" type="text/css">
+    <!-- 文章中包含 MathJax，可能导致加载较慢 -->
+    <!-- MathJax 部分开始 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']], displayMath: [['$$','$$']]}
+    });
+    MathJax.Hub.Register.StartupHook("End", function () {
+        Codeforces.runMathJaxListeners();
+    });
+    </script>
+    <script type="text/javascript" async
+            src="https://codeforc.es/menci/cdn-mathjax/com/MathJax.js?config=TeX-AMS_HTML-full">
+    </script>
+    <!-- MathJax 部分结束 -->
+  </head>
+  <body>
+    <ul class="header-top">
+        <li class="header-text"><a href="/" class="name">liyuanchen2021</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="name">OI版</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="inactive">首页</a></li>
+        <li class="header-text"><a href="/oi/post/list" class="active">文章</a></li>
+        <li class="header-text"><a href="/oi/post/solution-list" class="inactive">题解</a></li>
+        <li class="header-text"><a href="https://github.com/liyuanchen2021/liyuanchen2021.github.io" class="inactive" target="_blank">仓库</a></li>
+        <li class="header-text"><a class="button-link" href="/oi/search"><button href="/oi/search" class="menu-button">搜索</button></a></li>
+    </ul>
+    
+    <h1 id="cspj2022bj">CSP-J 2022 游记（BJ）</h1>
+<h2 id="20221027">2022.10.27 测试回收系统</h2>
+<p>我用 NOI Linux 在程序回收系统中提交了一道题的代码并发给 dls，dls 说程序没有问题。</p>
+<p>而我在赛后发现有些人注释 <code>freopen</code> 了（而且每年都有不少人这样做），希望大家<strong>在提交至回收系统的时候，别忘了把 <code>freopen</code> 的注释去掉</strong>。</p>
+<pre><code class="cpp language-cpp">//freopen("pow.in","r",stdin);
+//freopen("pow.out","w",stdout);
+</code></pre>
+<p>应改为：</p>
+<pre><code class="cpp language-cpp">freopen("pow.in","r",stdin);
+freopen("pow.out","w",stdout);
+</code></pre>
+<h2 id="20221028">2022.10.28</h2>
+<p>我趁考试之前的最后一天，抓紧时间复习算法，调整好心态，做好考试的准备。</p>
+<h2 id="20221029">2022.10.29 考试当天</h2>
+<h3 id="apow">A. 乘方(pow)</h3>
+<p>这道题我用了 <code>cmath</code> 头文件下的 <code>pow()</code> 函数（没用快速幂），并且开了 long long。当结果超过 $10^9$ 的时候，输出 <code>-1</code>，否则输出 $a^b$ 的结果。</p>
+<p>预期分数：100 | 洛谷估分：100 | <strong>实际分数：100</strong></p>
+<h3 id="bdecode">B. 解密(decode)</h3>
+<p>这道题我直接用了暴力，时间复杂度为 $O(k\times\sqrt{n})$，测样例的时候 T 在了 #4 上。</p>
+<p>我在赛后才发现可以采用更优的算法来拿到更高分数（如二分）。</p>
+<p>预期分数：60 | 洛谷估分：60（TLE #7~10）| <strong>实际分数：60</strong></p>
+<h3 id="cexpr">C. 表达式(expr)</h3>
+<p>这道题的目的是求中缀表达式的值。大家一定要知道，<strong>按位与的优先级要比按位或的优先级更高</strong>。</p>
+<p>这道题我用了我学过的求中缀表达式的方法——递归求值法，时间复杂度为 $O(n^2)$，不如先把中缀表达式转换为后缀表达式，再把后缀表达式进行求值，这样的时间复杂度优化为 $O(n)$。测试大样例时也是 T 在了 #4 上。</p>
+<p>预期分数：50 | 洛谷估分：70（评测结果如下图所示）| <strong>实际分数：50</strong></p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/jpr6zr65.png" alt="" /></p>
+<h3 id="dpoint">D. 上升点列(point)</h3>
+<p>这虽然是一道 DP 题，但是我没有时间去做这道题，因为此时还有 30 分钟考试就要结束了，这主要是因为被 T3 磨得没时间写，希望大家<strong>在做题的时候提升速度</strong>。</p>
+<h2 id="">估分</h2>
+<p>预期分数：100+60+50+0=210 分</p>
+<p>洛谷：100+60+70+0=230 分</p>
+<p><strong>实际分数：100+60+50+0=210 分</strong></p>
+<p>预计奖项：二等奖（5 级勾）</p>
+<h2 id="-1">下次考试加油！</h2>
+  </body>
+</html>
