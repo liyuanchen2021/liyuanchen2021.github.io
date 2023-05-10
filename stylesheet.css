@@ -5,6 +5,7 @@ ul.header-top>li.header-text {float: left;}
 ul.header-top>li.header-text>a.inactive {color: black; background-color: #eee; padding: 14px 16px; display: inline-block; text-decoration: none;}
 ul.header-top>li.header-text>a.inactive:hover {background-color: #ccc;}
 ul.header-top>li.header-text>a.name {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: blue;}
+ul.header-top>li.header-text>a.name-purple {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: purple;}
 ul.header-top>li.header-text>a.active {color: black; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: #aaa;}
 ul.header-top>li.header-text>a.button-link>button.menu-button {display: inline-block; color: white; border-color: transparent; border-style: solid; background-color: #3498DD; font-size: 150%; border-radius: 10px; box-shadow: none; margin-top: 6px; margin-left: 5px;}
 ul.header-top>li.header-text>a.button-link>button.menu-button:hover {background-color: #0056B3;}
