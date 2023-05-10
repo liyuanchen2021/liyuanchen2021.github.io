@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>搜索 - liyuanchen2021 OI</title>
+    <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
+    <link href="/stylesheet.css" rel="stylesheet" type="text/css">
+    <script>
+      function Local_click() {
+        var Kword = document.getElementById("Keyword").value;
+        var strlist = ['洛谷 P9123 题解', '洛谷 P8748 题解'];
+        var linklist = ['solution-luogu-P9123', 'solution-luogu-P8748'];
+        document.body.innerHTML = "<ul class=\"header-top\"><li class=\"header-text\"><a href=\"/\" class=\"name\">liyuanchen2021</a></li><li class=\"header-text\"><a href=\"/oi/index-page\" class=\"name\">OI版</a></li><li class=\"header-text\"><a href=\"/oi/index-page\" class=\"inactive\">首页</a></li><li class=\"header-text\"><a href=\"/oi/post/list\" class=\"inactive\">文章</a></li><li class=\"header-text\"><a href=\"/oi/post/solution-list\" class=\"inactive\">题解</a></li><li class=\"header-text\"><a href=\"https://github.com/liyuanchen2021/liyuanchen2021.github.io\" class=\"inactive\" target=\"_blank\">仓库</a></li><li class=\"header-text\"><a class=\"button-link\" href=\"/oi/search\"><button class=\"menu-button\">搜索</button></a></li></ul>";
+        document.body.innerHTML += "<h1>搜索</h1><p><input value=\"" + Kword + "\" type=\"text\" id=\"Keyword\" onkeyup=\"get()\"><button onclick=\"Local_click()\">搜索</button></p><p>筛选：全部 | <a href=\"search-post\">文章</a> | <a href=\"search-solution\">题解</a></p>";
+        if (Kword != "") {
+          const n = 2;
+          var i, cnt = 0;
+          for (i = 0; i < n; i++)
+         	  if (strlist[i].indexOf(Kword) != -1)  cnt++;
+          if (cnt == 0)  document.body.innerHTML += "<p class=\"grey\">未找到结果</p>";
+          else  document.body.innerHTML += "<p class=\"grey\">共找到 " + cnt + " 条结果</p>";
+          for (i = 0; i < n; i++)
+            if (strlist[i].indexOf(Kword) != -1)  document.body.innerHTML += "<p><a href=\"/oi/post/" + linklist[i] + "\">" + strlist[i] + "</a></p>";
+        }
+      }
+      function get() {
+        var code = event.keyCode;
+        if (code == 13) Local_click();
+      }
+    </script>
+  </head>
+  <body>
+    <ul class="header-top">
+        <li class="header-text"><a href="/" class="name">liyuanchen2021</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="name">OI版</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="inactive">首页</a></li>
+        <li class="header-text"><a href="/oi/post/list" class="inactive">文章</a></li>
+        <li class="header-text"><a href="/oi/post/solution-list" class="inactive">题解</a></li>
+        <li class="header-text"><a href="https://github.com/liyuanchen2021/liyuanchen2021.github.io" class="inactive" target="_blank">仓库</a></li>
+        <li class="header-text"><a class="button-link" href="/oi/search"><button href="/oi/search" class="menu-button">搜索</button></a></li>
+    </ul>
+    
+    <h1>搜索</h1>
+    <p><input type="text" id="Keyword" onkeyup="get()"><button onclick="Local_click()">搜索</button></p>
+    <p>筛选：<a href="search">全部</a> | <a href="search-post">文章</a> | 题解</p>
+  </body>
+</html>
