@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>01 背包 - 文章 - liyuanchen2021 OI</title>
+    <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
+    <link href="/stylesheet-oi.css" rel="stylesheet" type="text/css">
+    <!-- 文章中包含 MathJax，可能导致加载较慢 -->
+    <!-- MathJax 部分开始 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']], displayMath: [['$$','$$']]}
+    });
+    MathJax.Hub.Register.StartupHook("End", function () {
+        Codeforces.runMathJaxListeners();
+    });
+    </script>
+    <script type="text/javascript" async
+            src="https://codeforc.es/menci/cdn-mathjax/com/MathJax.js?config=TeX-AMS_HTML-full">
+    </script>
+    <!-- MathJax 部分结束 -->
+  </head>
+  <body>
+    <ul class="header-top">
+        <li class="header-text"><a href="/" class="name">liyuanchen2021</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="name">OI版</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="inactive">首页</a></li>
+        <li class="header-text"><a href="/oi/post/list" class="active">文章</a></li>
+        <li class="header-text"><a href="/oi/post/solution-list" class="inactive">题解</a></li>
+        <li class="header-text"><a href="https://github.com/liyuanchen2021/liyuanchen2021.github.io" class="inactive" target="_blank">仓库</a></li>
+        <li class="header-text"><a class="button-link" href="/oi/search"><button href="/oi/search" class="menu-button">搜索</button></a></li>
+    </ul>
+    
+    <h1 id="01">01 背包</h1>
+<h2 id="">一、概念</h2>
+<p>01 背包是指：有 $n$ 件物品，每件物品的重量为 $w_i$，价值为 $p_i$。现在有一个容量为 $m$ 的背包，在<strong>不超过背包容量的情况下</strong>，求<strong>最大价值</strong>。<strong>每种物品最多只能放一件</strong>。</p>
+<h2 id="-1">二、思路</h2>
+<p>设 $f[i][j]$ 为容量为 $j$ 的背包中放前 $i$ 件物品所能获得的最大价值。</p>
+<p>放每种物品时，有三种情况：</p>
+<ul>
+<li><p>装不下，$f[i][j]=f[i-1][j]$</p></li>
+<li><p>放，$f[i][j]=f[i-1][j-w[i]]+p[i]$</p></li>
+<li><p>不放，$f[i][j]=f[i-1][j]$</p></li>
+</ul>
+<p>即：</p>
+<p>$$
+\begin{Bmatrix}
+f[i][j]=f[i-1][j](1 \leq j&lt;w[i])\\
+f[i][j]=max(f[i-1][j],f[i-1][j-w[i]]+p[i])(w[i] \leq j \leq m)
+\end{Bmatrix}
+$$</p>
+<h3 id="-2">举例分析</h3>
+<p>$n=3,m=6$</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/2svuvs7o.png" alt="" /></p>
+<p>如上表，最终答案为 9。</p>
+<h3 id="-3">处理过程及输出代码</h3>
+<pre><code class="cpp language-cpp">for (int i = 1; i &lt;= n; i++) {
+    for (int j = 1; j &lt;= m; j++) {
+        if (j &lt; w[i])   f[i][j] = f[i-1][j];
+        else    f[i][j] = max(f[i-1][j],f[i-1][j-w[i]]+p[i]);
+    }
+}
+cout &lt;&lt; f[n][m] &lt;&lt; endl;
+</code></pre>
+<h2 id="-4">三、优化</h2>
+<p>按照以上解法，时间复杂度为 $O(nm)$，不可优化；而空间复杂度为 $O(nm)$，可将 $f$ 数组<strong>压至一维数组</strong>，使空间复杂度调至 $O(m)$。这种技巧称为<strong>滚动数组</strong>。</p>
+<h3 id="-5">思路</h3>
+<p>设 $f[j]$ 为容量为 $j$ 的背包中放若干件物品所能获得的最大价值。</p>
+<p>放每种物品时，有三种情况：</p>
+<ul>
+<li><p>装不下，$f[j]$ 不变</p></li>
+<li><p>放，$f[j]=f[j-w[i]]+p[i]$</p></li>
+<li><p>不放，$f[j]$ 不变</p></li>
+</ul>
+<p>即：</p>
+<p>$$
+f[j]=max(f[j],f[j-w[i]]+p[i])(m \geq j \geq w[i])
+$$</p>
+<p>值得要注意的是：内层循环必须<strong>逆序</strong>。</p>
+<h3 id="-6">处理过程及输出代码</h3>
+<pre><code class="cpp language-cpp">for (int i = 1; i &lt;= n; i++) {
+    for (int j = m; j &gt;= w[i]; j--) {
+        f[j] = max(f[j],f[j-w[i]]+p[i]);
+    }
+}
+cout &lt;&lt; f[m] &lt;&lt; endl;
+</code></pre>
+<p>板子题：<a href="https://www.luogu.com.cn/problem/AT_dp_d">AT_dp_d Knapsack 1</a></p>
+<h2 id="-7">四、练习</h2>
+<ul>
+<li><p><a href="https://www.luogu.com.cn/problem/P1049">P1049 [NOIP2001 普及组] 装箱问题</a></p></li>
+<li><p><a href="https://www.luogu.com.cn/problem/P1048">P1048 [NOIP2005 普及组] 采药</a></p></li>
+<li><p><a href="https://www.luogu.com.cn/problem/P1060">P1060 [NOIP2006 普及组] 开心的金明</a></p></li>
+<li><p><a href="https://www.luogu.com.cn/problem/AT_dp_e">AT<em>dp</em>e Knapsack 2</a></p></li>
+</ul>
+  </body>
+</html>
