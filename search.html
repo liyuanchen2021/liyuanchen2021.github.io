@@ -11,7 +11,7 @@
         var Kword = document.getElementById("Keyword").value;
         var strlist = [];
         var linklist = [];
-        document.body.innerHTML = "<ul class=\"header-top\"><li class=\"header-text\"><a href=\"/\" class=\"name\">liyuanchen2021</a></li><li class=\"header-text\"><a href=\"/\" class=\"active\">首页</a></li><li class=\"header-text\"><a href=\"/post/list\" class=\"inactive\">文章</a></li><li class=\"header-text\"><a href=\"/about\" class=\"inactive\">关于</a></li><li class=\"header-text\"><a class=\"button-link\" href=\"/search\"><button href=\"/search\" class=\"menu-button\">搜索</button></a></li></ul>";
+        document.body.innerHTML = "<ul class=\"header-top\"><li class=\"header-text\"><a href=\"/\" class=\"name\">liyuanchen2021</a></li><li class=\"header-text\"><a href=\"/\" class=\"inactive\">首页</a></li><li class=\"header-text\"><a href=\"/post/list\" class=\"inactive\">文章</a></li><li class=\"header-text\"><a href=\"/about\" class=\"inactive\">关于</a></li><li class=\"header-text\"><a class=\"button-link\" href=\"/search\"><button href=\"/search\" class=\"menu-button\">搜索</button></a></li></ul>";
         document.body.innerHTML += "<h1>搜索</h1><p><input value=\"" + Kword + "\" type=\"text\" id=\"Keyword\" onkeyup=\"get()\"><button onclick=\"Local_click()\">搜索</button></p>";
         if (Kword != "") {
           const n = 0;
