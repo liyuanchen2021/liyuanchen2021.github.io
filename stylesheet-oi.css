@@ -1,0 +1,30 @@
+a {color: #3498DD; text-decoration: none;}
+a:hover {color: #0056B3}
+ul.header-top {list-style-type: none; margin: 0; padding: 0; background-color: #eee; overflow: hidden;}
+ul.header-top>li.header-text {float: left;}
+ul.header-top>li.header-text>a.inactive {color: black; background-color: #eee; padding: 14px 16px; display: inline-block; text-decoration: none;}
+ul.header-top>li.header-text>a.inactive:hover {background-color: #ccc;}
+ul.header-top>li.header-text>a.name {color: white; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: blue;}
+ul.header-top>li.header-text>a.active {color: black; padding: 14px 16px; display: inline-block; text-decoration: none; background-color: #aaa;}
+ul.header-top>li.header-text>a.button-link>button.menu-button {display: inline-block; color: white; border-color: transparent; border-style: solid; background-color: #3498DD; font-size: 150%; border-radius: 10px; box-shadow: none; margin-top: 6px; margin-left: 5px;}
+ul.header-top>li.header-text>a.button-link>button.menu-button:hover {background-color: #0056B3;}
+button {display: inline-block; color: white; border-color: transparent; border-style: solid; background-color: #3498DD; border-radius: 6.67px; box-shadow: none;}
+button:hover {background-color: #0056B3;}
+button.white {color: #3498DD; border-color: #3498DD; background-color: transparent;}
+button.white:hover {color: #0056B3; border-color: #0056B3;}
+.big-size.button {font-size: 150%; border-radius: 10px;}
+h1 {font-size: 1.75em;}
+h2 {font-size: 1.5em;}
+h3 {font-size: 1.25em;}
+h4 {font-size: 1em;}
+h5 {font-size: 0.875em;}
+h6 {font-size: 0.75em;}
+blockquote {padding: 10px 20px; margin: 0 0 20px; border-left: 5px solid #eee;}
+.highlight-yellow {display: inline-block; font-size: 16px; background-color: yellow;}
+code {font-family: monospace, monospace; font-size: 1em;}
+code.inline {color: #e74285; background-color: #ffe3eb; display: inline-block;}
+small {font-size: 80%;}
+textarea {font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; resize: none;}
+textarea.no-editing {pointer-events: none;}
+textarea.text-code {display: block; border-color: transparent; font-size: 1em; pointer-events: none;}
+p.grey {color: #aaa;}
