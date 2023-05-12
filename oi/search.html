@@ -14,7 +14,13 @@
         document.body.innerHTML = "<ul class=\"header-top\"><li class=\"header-text\"><a href=\"/\" class=\"name\">liyuanchen2021</a></li><li class=\"header-text\"><a href=\"/oi/index-page\" class=\"name\">OI版</a></li><li class=\"header-text\"><a href=\"/oi/index-page\" class=\"inactive\">首页</a></li><li class=\"header-text\"><a href=\"/oi/post/list\" class=\"inactive\">文章</a></li><li class=\"header-text\"><a href=\"/oi/post/solution-list\" class=\"inactive\">题解</a></li><li class=\"header-text\"><a href=\"https://github.com/liyuanchen2021/liyuanchen2021.github.io\" class=\"inactive\" target=\"_blank\">仓库</a></li><li class=\"header-text\"><a class=\"button-link\" href=\"/oi/search\"><button class=\"menu-button\">搜索</button></a></li></ul>";
         document.body.innerHTML += "<h1>搜索</h1><p><input value=\"" + Kword + "\" type=\"text\" id=\"Keyword\" onkeyup=\"get()\"><button onclick=\"Local_click()\">搜索</button></p><p>搜索范围：全部 | <a href=\"search-post\">文章</a> | <a href=\"search-solution\">题解</a></p>";
         if (Kword == "@subsite:main") {
+          document.body.innerHTML += "<p class=\"grey\">即将跳转至子站</p>";
           var newWindow = window.open("https://liyuanchen2021.github.io", "_self");
+        } else if (Kword == "@subsite:oi") {
+          document.body.innerHTML += "<p class=\"grey\">即将跳转至子站</p>";
+          var newWindow = window.open("https://liyuanchen2021.github.io/oi", "_self");
+        } else if (Kword.indexOf("@subsite:") != -1) {
+          document.body.innerHTML += "<p class=\"grey\">未找到对应子站</p>";
         } else if (Kword != "") {
           const n = 7;
           var i, cnt = 0;
