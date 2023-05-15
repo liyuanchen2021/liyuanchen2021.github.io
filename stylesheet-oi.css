@@ -12,6 +12,8 @@ button {display: inline-block; color: white; border-color: transparent; border-s
 button:hover {background-color: #0056B3;}
 button.white {color: #3498DD; border-color: #3498DD; background-color: transparent;}
 button.white:hover {color: #0056B3; border-color: #0056B3;}
+button.danger {background-color: red;}
+button.danger:hover {background-color: #B22222;}
 .big-size.button {font-size: 150%; border-radius: 10px;}
 h1 {font-size: 1.75em;}
 h2 {font-size: 1.5em;}
