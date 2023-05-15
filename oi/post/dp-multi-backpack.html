@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>完全背包 - 文章 - liyuanchen2021 OI</title>
+    <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
+    <link href="/stylesheet-oi.css" rel="stylesheet" type="text/css">
+    <!-- 文章中包含 MathJax，可能导致加载较慢 -->
+    <!-- MathJax 部分开始 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']], displayMath: [['$$','$$']]}
+    });
+    MathJax.Hub.Register.StartupHook("End", function () {
+        Codeforces.runMathJaxListeners();
+    });
+    </script>
+    <script type="text/javascript" async
+            src="https://codeforc.es/menci/cdn-mathjax/com/MathJax.js?config=TeX-AMS_HTML-full">
+    </script>
+    <!-- MathJax 部分结束 -->
+  </head>
+  <body>
+    <ul class="header-top">
+        <li class="header-text"><a href="/" class="name">liyuanchen2021</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="name">OI版</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="inactive">首页</a></li>
+        <li class="header-text"><a href="/oi/post/list" class="active">文章</a></li>
+        <li class="header-text"><a href="/oi/post/solution-list" class="inactive">题解</a></li>
+        <li class="header-text"><a href="https://github.com/liyuanchen2021/liyuanchen2021.github.io" class="inactive" target="_blank">仓库</a></li>
+        <li class="header-text"><a class="button-link" href="/oi/search"><button href="/oi/search" class="menu-button">搜索</button></a></li>
+    </ul>
+    
+    <h1 id="">多重背包</h1>
+<h2 id="-1">一、概念</h2>
+<p>多重背包是指：有 $n$ 件物品，每件物品的重量为 $w_i$，价值为 $p_i$，最多能装 $s_i$ 件。现在有一个容量为$m$的背包，在<strong>不超过背包容量的情况下</strong>，求<strong>最大价值</strong>。</p>
+<h2 id="-2">二、思路</h2>
+<p>从这一期开始，直接讲压维思路。</p>
+<p>设 $f[j]$ 为容量为 $j$ 的背包中放若干件物品所能获得的最大价值。</p>
+<p>$i$ 层循环：第几件物品</p>
+<p>$j$ 层循环：枚举背包容量，与 01 背包相同</p>
+<p>$k$ 层循环：枚举物品数量，<strong>注意要从 0 开始枚举</strong>，既不能超过物品数量上限 $s_i$，乘上重量 $w_i$ 后也不能超过容量 $j$</p>
+<p>放每种物品时，有三种情况：</p>
+<ul>
+<li><p>装不下，$f[j]$ 不变</p></li>
+<li><p>放，$f[j]=f[j-k_w[i]]+k_p[i]$</p></li>
+<li><p>不放，$f[j]$ 不变</p></li>
+</ul>
+<p>即：</p>
+<p>$$
+f[j]=max(f[j],f[j-k_w[i]]+k_p[i])(m \geq j \geq w[i],0 \leq k \leq s[i],k*w[i] \leq j)
+$$</p>
+<h3 id="-3">举例分析</h3>
+<p>$n=3,m=7$</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/3wm34oop.png" alt="" /></p>
+<p>如上表，最终答案为。</p>
+<h3 id="-4">处理过程及输出代码</h3>
+<pre><code class="cpp language-cpp">for (int i = 1; i &lt;= n; i++) {
+    for (int j = m; j &gt;= w[i]; j--) {
+        for (int k = 0; k &lt;= s[i] &amp;&amp; k * w[i] &lt;= j; k++) {
+            f[j] = max(f[j], f[j - k * w[i]] + k * p[i]);
+        }
+    }
+}
+cout &lt;&lt; f[m] &lt;&lt; endl;
+</code></pre>
+<h2 id="-5">三、练习</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1833">P1833 樱花</a></li>
+</ul>
+  </body>
+</html>
