@@ -36,7 +36,7 @@
         }
       }
       function Subsite_click() {
-        document.body.innerHTML = "<ul class=\"header-top\"><li class=\"header-text\"><a href=\"/\" class=\"name\">liyuanchen2021</a></li><li class=\"header-text\"><a href=\"/\" class=\"inactive\">首页</a></li><li class=\"header-text\"><a href=\"/post/list\" class=\"inactive\">文章</a></li><li class=\"header-text\"><a href=\"/about\" class=\"inactive\">关于</a></li><li class=\"header-text\"><a class=\"button-link\" href=\"/search\"><button class=\"menu-button\">搜索</button></a></li></ul>";
+        document.body.innerHTML = "<ul class=\"header-top\"><li class=\"header-text\"><a href=\"/\" class=\"name\">liyuanchen2021</a></li><li class=\"header-text\"><a href=\"/oi/index-page\" class=\"name\">OI版</a></li><li class=\"header-text\"><a href=\"/oi/index-page\" class=\"inactive\">首页</a></li><li class=\"header-text\"><a href=\"/oi/post/list\" class=\"inactive\">文章</a></li><li class=\"header-text\"><a href=\"/oi/post/solution-list\" class=\"inactive\">题解</a></li><li class=\"header-text\"><a href=\"https://github.com/liyuanchen2021/liyuanchen2021.github.io\" class=\"inactive\" target=\"_blank\">仓库</a></li><li class=\"header-text\"><a class=\"button-link\" href=\"/oi/search\"><button class=\"menu-button\">搜索</button></a></li></ul>";
         document.body.innerHTML += "<h1>搜索</h1><p><input value=\"@subsite:\" type=\"text\" id=\"Keyword\" onkeyup=\"get()\"><button onclick=\"Local_click()\">搜索</button><button class=\"white\" onclick=\"Subsite_click()\">切换子站</button></p><p>搜索范围：全部 | <a href=\"search-post\">文章</a> | <a href=\"search-solution\">题解</a></p>";
       }
       function get() {
