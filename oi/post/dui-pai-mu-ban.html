@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>对拍模板 - 文章 - liyuanchen2021 OI</title>
+    <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
+    <link href="/stylesheet-oi.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <ul class="header-top">
+        <li class="header-text"><a href="/" class="name">liyuanchen2021</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="name">OI版</a></li>
+        <li class="header-text"><a href="/oi/index-page" class="inactive">首页</a></li>
+        <li class="header-text"><a href="/oi/post/list" class="active">文章</a></li>
+        <li class="header-text"><a href="/oi/post/solution-list" class="inactive">题解</a></li>
+        <li class="header-text"><a href="https://github.com/liyuanchen2021/liyuanchen2021.github.io" class="inactive" target="_blank">仓库</a></li>
+        <li class="header-text"><a class="button-link" href="/oi/search"><button href="/oi/search" class="menu-button">搜索</button></a></li>
+    </ul>
+    
+    <h1>对拍模板</h1>
+    <h2 id="">准备工作</h2>
+<h3 id="randomcpp">random.cpp（随机数据生成程序）</h3>
+<p><code>random.cpp</code> 需使用以下模板（输出文件名可随意更改）：</p>
+<pre><code class="cpp language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+long long random(int l, int r) {    //生成[l,r]之间的随机数
+    return rand() * rand() % (r - l + 1) + l;
+}
+int main() {
+    freopen("test.in", "w", stdout);
+    srand((unsigned)time(NULL));
+    //Your code here...
+    return 0;
+}
+</code></pre>
+<h3 id="solcpp">sol.cpp（需要对拍的程序）</h3>
+<p><code>sol.cpp</code> 需使用以下模板（输入/输出文件名可随意更改）：</p>
+<pre><code class="cpp language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main() {
+    freopen("test.in", "r", stdin);
+    freopen("test.out", "w", stdout);
+    //Your code here...
+    return 0;
+}
+</code></pre>
+<h3 id="bfcpp">bf.cpp（朴素算法程序/正解生成程序）</h3>
+<p><code>bf.cpp</code> 需使用以下模板（输入/输出文件名可随意更改）：</p>
+<pre><code class="cpp language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main() {
+    freopen("test.in", "r", stdin);
+    freopen("test.ans", "w", stdout);
+    //Your code here...
+    return 0;
+}
+</code></pre>
+<h2 id="-1">以上三个程序需要编译并得到运行程序文件</h2>
+<h2 id="-2">代码模板</h2>
+<h3 id="linux">Linux 原版代码（供赛前练习用，推荐）</h3>
+<pre><code class="cpp language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main() {
+    for (int T = 1; T &lt;= 1000; T++) {
+        system("./random");
+        double st = clock();
+        system("./sol");
+        double ed = clock();
+        system("./bf");
+        if (system("diff -Z test.out test.ans")) {
+            cout &lt;&lt; '#' &lt;&lt; T &lt;&lt; " WA " &lt;&lt; ed - st &lt;&lt; "s\n";
+            return 0;
+        }
+        else    cout &lt;&lt; '#' &lt;&lt; T &lt;&lt; " AC " &lt;&lt; ed - st &lt;&lt; "s\n";
+        cout &lt;&lt; "-------------------------\n";
+    }
+    cout &lt;&lt; "All right.\n";
+    return 0;
+}
+</code></pre>
+<h3 id="mac">Mac 原版代码同上</h3>
+<h3 id="windows">Windows 原版代码（供赛前练习用）</h3>
+<pre><code class="cpp language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main() {
+    for (int T = 1; T &lt;= 1000; T++) {
+        system("random.exe");
+        double st = clock();
+        system("sol.exe");
+        double ed = clock();
+        system("bf.exe");
+        if (system("fc test.out test.ans")) {
+            cout &lt;&lt; '#' &lt;&lt; T &lt;&lt; " WA " &lt;&lt; ed - st &lt;&lt; "ms\n";
+            return 0;
+        }
+        else    cout &lt;&lt; '#' &lt;&lt; T &lt;&lt; " AC " &lt;&lt; ed - st &lt;&lt; "ms\n";
+        cout &lt;&lt; "-------------------------\n";
+    }
+    cout &lt;&lt; "All right.\n";
+    return 0;
+}
+</code></pre>
+<h3 id="windows-1">Windows 新版代码（供平时使用）</h3>
+<pre><code class="cpp language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main() {
+    cout &lt;&lt; "对拍程序" &lt;&lt; endl;
+    cout &lt;&lt; "made by liyuanchen2021" &lt;&lt; endl;
+    cout &lt;&lt; "-------------------------\n";
+    cout &lt;&lt; "数据组数：";
+    int n;
+    cin &gt;&gt; n;
+    cout &lt;&lt; "运行时限（ms，0代表不设）：";
+    int _time;
+    cin &gt;&gt; _time;
+    system("cls");
+    cout &lt;&lt; "请稍候...\n"; 
+    for (int T = 1; T &lt;= n; T++) {
+        system("random.exe");
+        double st = clock();
+        system("sol.exe");
+        double ed = clock();
+        system("bf.exe");
+        if (T == 1) system("cls");
+        if (_time != 0 &amp;&amp; T &gt; 1 &amp;&amp; ed - st &gt; _time + 200) {
+            cout &lt;&lt; '#' &lt;&lt; T &lt;&lt; " TLE " &lt;&lt; ed - st &lt;&lt; "ms\n";
+            return 0;
+        }
+        else if (system("fc test.out test.ans")) {
+            cout &lt;&lt; '#' &lt;&lt; T &lt;&lt; " WA " &lt;&lt; ed - st &lt;&lt; "ms\n";
+            return 0;
+        }
+        else    cout &lt;&lt; '#' &lt;&lt; T &lt;&lt; " AC " &lt;&lt; ed - st &lt;&lt; "ms\n";
+        cout &lt;&lt; "-------------------------\n";
+    }
+    cout &lt;&lt; "评测通过\n";
+    return 0;
+}
+</code></pre>
+<h3 id="-3">更新日志</h3>
+<ol>
+<li><p>增加了运行时限。</p></li>
+<li><p>对运行时限进行了优化：首个点不限时，其他点时限增加了 200ms。</p></li>
+</ol>
+  </body>
+</html>
