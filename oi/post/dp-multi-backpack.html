@@ -45,12 +45,12 @@
 <p>放每种物品时，有三种情况：</p>
 <ul>
 <li><p>装不下，$f[j]$ 不变</p></li>
-<li><p>放，$f[j]=f[j-k_w[i]]+k_p[i]$</p></li>
+<li><p>放，$f[j]=f[j-k*w[i]]+k*p[i]$</p></li>
 <li><p>不放，$f[j]$ 不变</p></li>
 </ul>
 <p>即：</p>
 <p>$$
-f[j]=max(f[j],f[j-k_w[i]]+k_p[i])(m \geq j \geq w[i],0 \leq k \leq s[i],k*w[i] \leq j)
+f[j]=max(f[j],f[j-k*w[i]]+k*p[i])(m \geq j \geq w[i],0 \leq k \leq s[i],k*w[i] \leq j)
 $$</p>
 <h3 id="-3">举例分析</h3>
 <p>$n=3,m=7$</p>
