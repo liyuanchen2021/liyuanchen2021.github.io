@@ -13,15 +13,7 @@
         var istop = [];
         document.body.innerHTML = "<ul class=\"header-top\"><li class=\"header-text\"><a href=\"/\" class=\"name\">liyuanchen2021</a></li><li class=\"header-text\"><a href=\"/\" class=\"inactive\">首页</a></li><li class=\"header-text\"><a href=\"/post/list\" class=\"inactive\">文章</a></li><li class=\"header-text\"><a class=\"button-link\" href=\"/search\"><button class=\"menu-button\">搜索</button></a></li></ul>";
         document.body.innerHTML += "<h1>搜索</h1><p><input value=\"" + Kword + "\" type=\"text\" id=\"Keyword\" onkeyup=\"get()\"><button onclick=\"Local_click()\">搜索</button><button class=\"white\" onclick=\"Subsite_click()\">切换子站</button></p>";
-        if (Kword == "@subsite:main") {
-          document.body.innerHTML += "<p class=\"grey\">即将跳转至子站</p>";
-          var newWindow = window.open("https://liyuanchen2021.github.io", "_self");
-        } else if (Kword == "@subsite:oi") {
-          document.body.innerHTML += "<p class=\"grey\">即将跳转至子站</p>";
-          var newWindow = window.open("https://liyuanchen2021.github.io/oi", "_self");
-        } else if (Kword.indexOf("@subsite:") != -1) {
-          document.body.innerHTML += "<p class=\"grey\">未找到对应子站</p>";
-        } else if (Kword != "") {
+        if (Kword != "") {
           const n = 0;
           var i, cnt = 0;
           for (i = 0; i < n; i++)
@@ -36,8 +28,8 @@
         }
       }
       function Subsite_click() {
-        document.body.innerHTML = "<ul class=\"header-top\"><li class=\"header-text\"><a href=\"/\" class=\"name\">liyuanchen2021</a></li><li class=\"header-text\"><a href=\"/\" class=\"inactive\">首页</a></li><li class=\"header-text\"><a href=\"/post/list\" class=\"inactive\">文章</a></li><li class=\"header-text\"><a class=\"button-link\" href=\"/search\"><button class=\"menu-button\">搜索</button></a></li></ul>";
-        document.body.innerHTML += "<h1>搜索</h1><p><input value=\"@subsite:\" type=\"text\" id=\"Keyword\" onkeyup=\"get()\"><button onclick=\"Local_click()\">搜索</button><button class=\"white\" onclick=\"Subsite_click()\">切换子站</button></p>";
+        var Kword = document.getElementById("Keyword").value;
+        var newWindow = window.open("https://liyuanchen2021.github.io/" + Kword, "_self");
       }
       function get() {
         var code = event.keyCode;
