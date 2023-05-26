@@ -29,7 +29,8 @@
       }
       function Subsite_click() {
         var Kword = document.getElementById("Keyword").value;
-        var newWindow = window.open("https://liyuanchen2021.github.io/" + Kword, "_self");
+        if (Kword == "main")  var newWindow = window.open("https://liyuanchen2021.github.io");
+        else  var newWindow = window.open("https://liyuanchen2021.github.io/" + Kword + "/index-page", "_self");
       }
       function get() {
         var code = event.keyCode;
