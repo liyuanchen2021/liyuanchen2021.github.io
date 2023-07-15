@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>扫雷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            user-select: none;
+        }
+
+        #app-pre {
+            padding-top: 20px;
+            padding-left: 20px;
+            cursor: default;
+        }
+
+        #app {
+            padding-top: 20px;
+            padding-left: 20px;
+            display: inline-block;
+        }
+
+        span.bl {
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+            background-color: blue;
+            outline-style: solid;
+            outline-color: black;
+            outline-width: 3px;
+            color: blue;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        span.bl:hover {
+            background-color: deepskyblue;
+            color: deepskyblue;
+        }
+
+        span.bl2 {
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+            background-color: green;
+            outline-style: solid;
+            outline-color: black;
+            outline-width: 3px;
+            color: green;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        span.bl2:hover {
+            background-color: yellowgreen;
+            color: yellowgreen;
+        }
+
+        span.num {
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+            background-color: #bbb;
+            outline-style: solid;
+            outline-color: black;
+            outline-width: 3px;
+            color: black;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        .choises-summary {
+            display: inline-block;
+            width: 340px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .choice {
+            width: 100px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            border-radius: 8px 8px 8px 8px;
+            padding: 5px;
+            color: black;
+            font-weight: normal;
+            background-color: transparent;
+            transition: background-color 0.25s linear;
+            transition: color 0 linear;
+            transition: font-weight 0 linear;
+        }
+
+        .choice:hover {
+            font-weight: normal;
+            color: black;
+            background-color: #e6e6e6;
+            transition: background-color 0.25s linear;
+            transition: color 0 linear;
+            transition: font-weight 0 linear;
+        }
+
+        .choice-selected {
+            width: 100px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: blue;
+            border-radius: 8px 8px 8px 8px;
+            padding: 5px;
+            color: white;
+            transition: background-color 0.25s linear;
+            transition: color 0 linear;
+            transition: font-weight 0 linear;
+            box-shadow: none;
+            transition: box-shadow 0.25s linear;
+        }
+
+        .choice-selected:hover {
+            box-shadow: 0 2px 12px #666666;
+            transition: box-shadow 0.25s linear;
+        }
+
+        #box {
+            width: 20px;
+            height: 20px;
+            background: green;
+            position: absolute;
+            border-radius: 25%;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div id="app-pre">
+        <span class="choises-summary">扫雷</span>&nbsp;<span class="choice-selected" id="ch1-1"
+            onclick="setchoise(1, 1, 2)">点击</span>&nbsp;
+        <span class="choice" id="ch1-2" onclick="setchoise(1, 2, 2)">标记</span>
+    </div>
+    <div id="app"></div>
+    <script type="text/javascript">
+        var a = ["", " 000000000", " 000000000", " 000000000", " 000000000", " 000000000", " 000000000", " 000000000", " 000000000", " 000000000"];
+        var remain = 71, st = null;
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= 9; j++) document.getElementById("app").innerHTML += "<span class=\"bl\" id=\"" + i + "-" + j + "\" onclick=\"cl(" + i + "," + j + ")\">0</span>";
+            document.getElementById("app").innerHTML += "<br>";
+        }
+        var _box = document.getElementById("box");
+        document.onmousemove = function (ev) {
+            var ev = ev || window.event;
+            _box.style.top = ev.pageY + "px", _box.style.left = ev.pageX + "px";
+        }
+        for (var cnt = 1; cnt <= 10; cnt++) {
+            var aa = " ", x = random(1, 9), y = random(1, 9);
+            while (a[x][y] == '*') x = random(1, 9), y = random(1, 9);
+            for (var j = 1; j <= 9; j++) {
+                if (j == y) aa = aa + "*";
+                else aa = aa + a[x][j];
+            }
+            a[x] = aa;
+        }
+        var dx = [0, 0, 1, 1, 1, -1, -1, -1], dy = [1, -1, 1, 0, -1, 1, 0, -1];
+        for (var i = 1; i <= 9; i++) {
+            for (var j = 1; j <= 9; j++) {
+                if (a[i][j] == '*') continue;
+                for (var k = 0; k < dx.length; k++) {
+                    var x = i + dx[k], y = j + dy[k];
+                    if (x < 1 || x > 9 || y < 1 || y > 9) continue;
+                    if (a[x][y] != '*') continue;
+                    var aa = " ";
+                    for (var jj = 1; jj <= 9; jj++) {
+                        if (jj == j) aa = aa + String(parseInt(a[i][jj]) + 1);
+                        else aa = aa + a[i][jj];
+                    }
+                    a[i] = aa;
+                }
+            }
+        }
+        function cl(x, y) {
+            if (document.getElementById(x + "-" + y).className == "num") return null;
+            if (st == null) st = new Date();
+            if (a[x][y] == '*') {
+                var l = document.getElementsByClassName("bl");
+                for (var i = 0; i < l.length; i = i) {
+                    l[i].innerHTML = a[parseInt(l[i].id[0])][parseInt(l[i].id[2])];
+                    if (l[i].innerHTML == "*") l[i].style = "background-color: red; color: white;";
+                    if (l[i].innerHTML == "0") l[i].style = "color: transparent;";
+                    if (l[i].innerHTML == "1") l[i].style = "color: blue;";
+                    if (l[i].innerHTML == "2") l[i].style = "color: green;";
+                    if (l[i].innerHTML == "3") l[i].style = "color: red;";
+                    if (l[i].innerHTML == "4") l[i].style = "color: blue;";
+                    if (l[i].innerHTML == "5") l[i].style = "color: red;";
+                    if (l[i].innerHTML == "6") l[i].style = "color: #06979c;";
+                    if (l[i].innerHTML == "7") l[i].style = "color: #777;";
+                    if (l[i].innerHTML == "8") l[i].style = "color: black;";
+                    l[i].className = "num";
+                }
+                l = document.getElementsByClassName("bl2");
+                for (var i = 0; i < l.length; i = i) {
+                    l[i].innerHTML = a[parseInt(l[i].id[0])][parseInt(l[i].id[2])];
+                    if (l[i].innerHTML == "*") l[i].style = "background-color: red; color: white;";
+                    if (l[i].innerHTML == "0") l[i].style = "color: transparent;";
+                    if (l[i].innerHTML == "1") l[i].style = "color: blue;";
+                    if (l[i].innerHTML == "2") l[i].style = "color: green;";
+                    if (l[i].innerHTML == "3") l[i].style = "color: red;";
+                    if (l[i].innerHTML == "4") l[i].style = "color: blue;";
+                    if (l[i].innerHTML == "5") l[i].style = "color: red;";
+                    if (l[i].innerHTML == "6") l[i].style = "color: #06979c;";
+                    if (l[i].innerHTML == "7") l[i].style = "color: #777;";
+                    if (l[i].innerHTML == "8") l[i].style = "color: black;";
+                    l[i].className = "num";
+                }
+                setTimeout(function () {
+                    alert("你输了");
+                    document.getElementsByClassName("choises-summary")[0].innerHTML = "失败 | 按 F5 键重新开始";
+                    document.getElementById("ch1-1").style.display = document.getElementById("ch1-2").style.display = "none";
+                }, 500);
+            } else if (a[x][y] != "0") {
+                var now = document.getElementById(x + "-" + y);
+                now.className = "num";
+                now.innerHTML = a[x][y];
+                if (now.innerHTML == "1") now.style = "color: blue;";
+                if (now.innerHTML == "2") now.style = "color: green;";
+                if (now.innerHTML == "3") now.style = "color: red;";
+                if (now.innerHTML == "4") now.style = "color: blue;";
+                if (now.innerHTML == "5") now.style = "color: red;";
+                if (now.innerHTML == "6") now.style = "color: #06979c;";
+                if (now.innerHTML == "7") now.style = "color: #777;";
+                if (now.innerHTML == "8") now.style = "color: black;";
+                remain--;
+                if (remain == 0) {
+                    var l = document.getElementsByClassName("bl");
+                    for (var i = 0; i < l.length; i = i) {
+                        l[i].innerHTML = a[parseInt(l[i].id[0])][parseInt(l[i].id[2])];
+                        if (l[i].innerHTML == "*") l[i].style = "background-color: black; color: white;";
+                        if (l[i].innerHTML == "0") l[i].style = "color: transparent;";
+                        if (l[i].innerHTML == "1") l[i].style = "color: blue;";
+                        if (l[i].innerHTML == "2") l[i].style = "color: green;";
+                        if (l[i].innerHTML == "3") l[i].style = "color: red;";
+                        if (l[i].innerHTML == "4") l[i].style = "color: blue;";
+                        if (l[i].innerHTML == "5") l[i].style = "color: red;";
+                        if (l[i].innerHTML == "6") l[i].style = "color: #06979c;";
+                        if (l[i].innerHTML == "7") l[i].style = "color: #777;";
+                        if (l[i].innerHTML == "8") l[i].style = "color: black;";
+                        l[i].className = "num";
+                    }
+                    l = document.getElementsByClassName("bl2");
+                    for (var i = 0; i < l.length; i = i) {
+                        l[i].innerHTML = a[parseInt(l[i].id[0])][parseInt(l[i].id[2])];
+                        if (l[i].innerHTML == "*") l[i].style = "background-color: black; color: white;";
+                        if (l[i].innerHTML == "0") l[i].style = "color: transparent;";
+                        if (l[i].innerHTML == "1") l[i].style = "color: blue;";
+                        if (l[i].innerHTML == "2") l[i].style = "color: green;";
+                        if (l[i].innerHTML == "3") l[i].style = "color: red;";
+                        if (l[i].innerHTML == "4") l[i].style = "color: blue;";
+                        if (l[i].innerHTML == "5") l[i].style = "color: red;";
+                        if (l[i].innerHTML == "6") l[i].style = "color: #06979c;";
+                        if (l[i].innerHTML == "7") l[i].style = "color: #777;";
+                        if (l[i].innerHTML == "8") l[i].style = "color: black;";
+                        l[i].className = "num";
+                    }
+                    setTimeout(function () {
+                        var now = new Date();
+                        var det = now - st;
+                        now.setTime(det);
+                        now.setHours(0);
+                        alert("你赢了，用时 " + now.toLocaleTimeString());
+                        document.getElementsByClassName("choises-summary")[0].style.width = "500px";
+                        document.getElementsByClassName("choises-summary")[0].innerHTML = "胜利，用时 " + now.toLocaleTimeString() + " | 按 F5 键重新开始";
+                        document.getElementById("ch1-1").style.display = document.getElementById("ch1-2").style.display = "none";
+                    }, 500);
+                }
+            } else {
+                var now = document.getElementById(x + "-" + y);
+                now.className = "num";
+                now.innerHTML = a[x][y];
+                now.style = "color: transparent;";
+                remain--;
+                if (remain == 0) {
+                    var l = document.getElementsByClassName("bl");
+                    for (var i = 0; i < l.length; i = i) {
+                        l[i].innerHTML = a[parseInt(l[i].id[0])][parseInt(l[i].id[2])];
+                        if (l[i].innerHTML == "*") l[i].style = "background-color: black; color: white;";
+                        if (l[i].innerHTML == "0") l[i].style = "color: transparent;";
+                        if (l[i].innerHTML == "1") l[i].style = "color: blue;";
+                        if (l[i].innerHTML == "2") l[i].style = "color: green;";
+                        if (l[i].innerHTML == "3") l[i].style = "color: red;";
+                        if (l[i].innerHTML == "4") l[i].style = "color: blue;";
+                        if (l[i].innerHTML == "5") l[i].style = "color: red;";
+                        if (l[i].innerHTML == "6") l[i].style = "color: #06979c;";
+                        if (l[i].innerHTML == "7") l[i].style = "color: #777;";
+                        if (l[i].innerHTML == "8") l[i].style = "color: black;";
+                        l[i].className = "num";
+                    }
+                    l = document.getElementsByClassName("bl2");
+                    for (var i = 0; i < l.length; i = i) {
+                        l[i].innerHTML = a[parseInt(l[i].id[0])][parseInt(l[i].id[2])];
+                        if (l[i].innerHTML == "*") l[i].style = "background-color: black; color: white;";
+                        if (l[i].innerHTML == "0") l[i].style = "color: transparent;";
+                        if (l[i].innerHTML == "1") l[i].style = "color: blue;";
+                        if (l[i].innerHTML == "2") l[i].style = "color: green;";
+                        if (l[i].innerHTML == "3") l[i].style = "color: red;";
+                        if (l[i].innerHTML == "4") l[i].style = "color: blue;";
+                        if (l[i].innerHTML == "5") l[i].style = "color: red;";
+                        if (l[i].innerHTML == "6") l[i].style = "color: #06979c;";
+                        if (l[i].innerHTML == "7") l[i].style = "color: #777;";
+                        if (l[i].innerHTML == "8") l[i].style = "color: black;";
+                        l[i].className = "num";
+                    }
+                    setTimeout(function () {
+                        alert("你赢了");
+                        document.getElementsByClassName("choises-summary")[0].innerHTML = "胜利 | 按 F5 键重新开始";
+                        document.getElementById("ch1-1").style.display = document.getElementById("ch1-2").style.display = "none";
+                    }, 500);
+                } else {
+                    var dx = [0, 0, 1, 1, 1, -1, -1, -1];
+                    var dy = [1, -1, 1, 0, -1, 1, 0, -1];
+                    for (var k = 0; k < dx.length; k++) {
+                        var xx = parseInt(x) + dx[k], yy = parseInt(y) + dy[k];
+                        if (xx < 1 || xx > 9 || yy < 1 || yy > 9) continue;
+                        if (document.getElementById(String(xx) + "-" + String(yy)).className == "num") continue;
+                        cl(xx, yy);
+                    }
+                }
+            }
+        }
+        function mark(x, y) {
+            var now = document.getElementById(x + "-" + y);
+            if (now.className == "bl") now.className = "bl2";
+            else if (now.className == "bl2") now.className = "bl";
+        }
+        function setchoise(v1, v2, v3) {
+            var idstr = "ch" + v1 + "-";
+            for (var i = 1; i <= v3; i++) {
+                if (i == v2) document.getElementById(idstr + i).className = "choice-selected";
+                else document.getElementById(idstr + i).className = "choice";
+            }
+            var htmlstr = "";
+            if (v2 == 1) {
+                for (var i = 1; i <= 9; i++) {
+                    for (var j = 1; j <= 9; j++) {
+                        var now = document.getElementById(i + "-" + j);
+                        if (now.className == "num" && now.innerHTML == "0") htmlstr += "<span class=\"" + now.className + "\" id=\"" + i + "-" + j + "\" onclick=\"cl(" + i + "," + j + ")\" style=\"color: transparent\">0</span>";
+                        else htmlstr += "<span class=\"" + now.className + "\" id=\"" + i + "-" + j + "\" onclick=\"cl(" + i + "," + j + ")\">" + now.innerHTML + "</span>";
+                    }
+                    htmlstr += "<br>";
+                }
+                document.getElementById("app").innerHTML = htmlstr;
+                for (var i = 1; i <= 9; i++) {
+                    for (var j = 1; j <= 9; j++) {
+                        var now = document.getElementById(i + "-" + j);
+                        if (now.innerHTML == "1") now.style = "color: blue;";
+                        if (now.innerHTML == "2") now.style = "color: green;";
+                        if (now.innerHTML == "3") now.style = "color: red;";
+                        if (now.innerHTML == "4") now.style = "color: blue;";
+                        if (now.innerHTML == "5") now.style = "color: red;";
+                        if (now.innerHTML == "6") now.style = "color: #06979c;";
+                        if (now.innerHTML == "7") now.style = "color: #777;";
+                        if (now.innerHTML == "8") now.style = "color: black;";
+                    }
+                }
+                document.getElementById("box").style.display = "none";
+            } else if (v2 == 2) {
+                for (var i = 1; i <= 9; i++) {
+                    for (var j = 1; j <= 9; j++) {
+                        var now = document.getElementById(i + "-" + j);
+                        if (now.className == "num" && now.innerHTML == "0") htmlstr += "<span class=\"" + now.className + "\" id=\"" + i + "-" + j + "\" onclick=\"mark(" + i + "," + j + ")\" style=\"color: transparent\">0</span>";
+                        else htmlstr += "<span class=\"" + now.className + "\" id=\"" + i + "-" + j + "\" onclick=\"mark(" + i + "," + j + ")\">" + now.innerHTML + "</span>";
+                    }
+                    htmlstr += "<br>";
+                }
+                document.getElementById("app").innerHTML = htmlstr;
+                for (var i = 1; i <= 9; i++) {
+                    for (var j = 1; j <= 9; j++) {
+                        var now = document.getElementById(i + "-" + j);
+                        if (now.innerHTML == "1") now.style = "color: blue;";
+                        if (now.innerHTML == "2") now.style = "color: green;";
+                        if (now.innerHTML == "3") now.style = "color: red;";
+                        if (now.innerHTML == "4") now.style = "color: blue;";
+                        if (now.innerHTML == "5") now.style = "color: red;";
+                        if (now.innerHTML == "6") now.style = "color: #06979c;";
+                        if (now.innerHTML == "7") now.style = "color: #777;";
+                        if (now.innerHTML == "8") now.style = "color: black;";
+                    }
+                }
+                document.getElementById("box").style.display = "block";
+            }
+        }
+        function random(a, b) { return parseInt(Math.random() * (b - a) + a); }
+    </script>
+</body>
+
+</html>
