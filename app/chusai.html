@@ -32,10 +32,13 @@
 
 <body style="padding-left: 10px;">
     <div id="app">
-        <h2><span id="ti"></span>&nbsp;评分&nbsp;<button onclick="back()">返回主页</button></h2>
+        <h2><span id="ti"></span>&nbsp;&nbsp;<button onclick="back()">返回主页</button></h2>
         <p>题目数量：<span id="num"></span><span id="best" style="display: none;">&nbsp;| 最好成绩：<span
                     id="bestscore"></span></span>
         </p>
+        <h2>题目公告</h2>
+        <div id="an"></div>
+        <h2>提交答案</h2>
         <p><input id="myans" style="width: 400px;" onkeyup="press_key()" placeholder="请在此处输入您的答案">&nbsp;<button
                 onclick="submit()">提交</button>&nbsp;<button onclick="reset()">重置</button>
         </p>
@@ -60,9 +63,10 @@
         if (localStorage.getItem("liyuanchen2021-chusai") != "") savearr = localStorage.getItem("liyuanchen2021-chusai").split(',');
         if (localStorage.getItem("liyuanchen2021-chusai1") != "") best = localStorage.getItem("liyuanchen2021-chusai1").split(',');
         document.getElementById("list").style.display = "none";
-        var strlist = ["CSP-J1 2021", "CSP-S1 2021", "CSP-J1 2022", "CSP-S1 2022"];
+        var strlist = ["CSP-J1 2021", "CSP-S1 2021", "CSP-J1 2022", "CSP-S1 2022", "洛谷 SCP 2023 第一轮（初赛 J 组）模拟", "洛谷 SCP 2023 第一轮（初赛 S 组）模拟"];
         if (window.location.href.indexOf("?id=") != -1) {
             var now = window.location.href.split("=")[1];
+            var announcement = "没有公告哦~";
             if (now == "1001") {
                 answer = "DBACDDCABBBACBBFFFTFBFTTBBCTFFACCDCCDBBDCBD";
                 for (var i = 0; i < answer.length; i++) {
@@ -107,8 +111,33 @@
                     else sc[i] = 3.0;
                 }
             }
+            if (now == "1005") {
+                answer = "BCDBBBABAAABAACTFTTBCFTFTDCFTFBAAACDBDBBDAB";
+                announcement = "题目链接：<a href=\"https://www.luogu.com.cn/problem/T366963\">https://www.luogu.com.cn/problem/T366963</a>";
+                for (var i = 0; i < answer.length; i++) {
+                    var pid = i + 1;
+                    if (pid <= 15) sc[i] = 2.0;
+                    else if (pid == 22 || pid == 29) sc[i] = 1.0;
+                    else if (pid == 31) sc[i] = 2.0;
+                    else if (answer[i] == 'T' || answer[i] == 'F') sc[i] = 2.0;
+                    else sc[i] = 3.0;
+                }
+            }
+            if (now == "1006") {
+                answer = "DABDBADDDDDAAAAFTFTDCFTFBAAFTFDDABBDABBBCBB";
+                announcement = "题目链接：<a href=\"https://www.luogu.com.cn/problem/T366964\">https://www.luogu.com.cn/problem/T366964</a>";
+                for (var i = 0; i < answer.length; i++) {
+                    var pid = i + 1;
+                    if (pid <= 15) sc[i] = 2.0;
+                    else if (pid == 16 || pid == 23) sc[i] = 1.0;
+                    else if (pid == 25 || pid == 31) sc[i] = 2.0;
+                    else if (answer[i] == 'T' || answer[i] == 'F') sc[i] = 2.0;
+                    else sc[i] = 3.0;
+                }
+            }
             var idx = parseInt(now) - 1001;
             document.getElementById("ti").innerHTML = strlist[idx];
+            document.getElementById("an").innerHTML = announcement;
             if (savearr[idx] != "" && savearr[idx] != undefined) document.getElementById("result").innerHTML = savearr[idx];
             if (best[idx] != "" && best[idx] != undefined) document.getElementById("best").style.display = "inline-block", document.getElementById("bestscore").innerHTML = best[idx];
         } else {
