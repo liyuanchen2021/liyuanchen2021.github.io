@@ -1,8 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-
-<head>
+<!DOCTYPE html><html><head>
     <meta charset="utf-8">
     <title>初赛评分系统</title>
     <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/da42380y.png">
@@ -30,7 +26,6 @@
         }
     </style>
 </head>
-
 <body style="padding-left: 10px;">
     <div id="app">
         <h2><span id="ti"></span>&nbsp;&nbsp;<button onclick="back()">返回主页</button></h2>
@@ -138,7 +133,32 @@
             var idx = parseInt(now) - 1001;
             document.getElementById("ti").innerHTML = strlist[idx];
             document.getElementById("an").innerHTML = announcement;
-            if (savearr[idx] != "" && savearr[idx] != undefined) document.getElementById("result").innerHTML = savearr[idx];
+            if (savearr[idx] != "" && savearr[idx] != undefined) {
+                var score = 0.0;
+                var myans = savearr[idx];
+                for (var i = 0; i < answer.length; i++) {
+                    if (myans[i] == answer[i]) {
+                        var pid = i + 1;
+                        score += sc[i];
+                    }
+                }
+                document.getElementById("result").innerHTML = "<p id=\"my_ans\">我的答案：</p>";
+                var wrong = [];
+                for (var i = 0; i < answer.length; i++) {
+                    if (myans[i] == answer[i]) document.getElementById("my_ans").innerHTML += "<span style=\"color: green;\">" + myans[i] + "</span>";
+                    else document.getElementById("my_ans").innerHTML += "<span style=\"color: red;\">" + myans[i] + "</span>", wrong.push(i + 1);
+                }
+                document.getElementById("result").innerHTML += "<p>正确答案：" + answer + "</p>";
+                if (wrong.length > 0) {
+                    var wrid = "错题编号：";
+                    for (var i = 0; i < wrong.length; i++) {
+                        if (i != 0) wrid += "&nbsp;&nbsp;";
+                        wrid += wrong[i];
+                    }
+                    document.getElementById("result").innerHTML += "<p>" + wrid + "</p>";
+                }
+                document.getElementById("result").innerHTML += "<p>成绩：" + score + "</p>";
+            }
             if (best[idx] != "" && best[idx] != undefined) document.getElementById("best").style.display = "inline-block", document.getElementById("bestscore").innerHTML = best[idx];
         } else {
             document.getElementById("app").style.display = "none";
@@ -191,7 +211,7 @@
                     document.getElementById("result").innerHTML += "<p>" + wrid + "</p>";
                 }
                 document.getElementById("result").innerHTML += "<p>成绩：" + score + "</p>";
-                savearr[parseInt(window.location.href.split("?id=")[1]) - 1001] = document.getElementById("result").innerHTML;
+                savearr[parseInt(window.location.href.split("?id=")[1]) - 1001] = myans;
                 localStorage.setItem("liyuanchen2021-chusai", savearr);
                 if (document.getElementById("best").style.display == "none") document.getElementById("best").style.display = "inline-block", document.getElementById("bestscore").innerHTML = score;
                 else if (score > parseInt(document.getElementById("bestscore").innerHTML)) document.getElementById("bestscore").innerHTML = score;
@@ -234,6 +254,4 @@
                     if (code == 13) submit();
         }
     </script>
-</body>
-
-</html>
+</body></html>
